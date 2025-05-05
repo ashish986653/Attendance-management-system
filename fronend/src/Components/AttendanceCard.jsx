@@ -11,7 +11,7 @@ export default function AttendanceCard() {
   const createattendance = async (event) => {
     event.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/create-attendance", {
+      const res = await axios.post("https://attendance-management-system-35qo.onrender.com/create-attendance", {
         fullName: fullName,
         time: time,
       });
@@ -30,7 +30,7 @@ export default function AttendanceCard() {
 
   const fetchAllAttendance = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/get-all-attendance");
+      const res = await axios.get("https://attendance-management-system-35qo.onrender.com/get-all-attendance");
       console.log(res.data.data);
       setAttendances(res.data.data);
     } catch (error) {
@@ -46,7 +46,7 @@ export default function AttendanceCard() {
   // delete attendance
   const deleteAttendance = async (_id) => {
     try {
-      const res=await axios.delete(`http://localhost:5000/delete-single-attendance/${_id}`);
+      const res=await axios.delete(`https://attendance-management-system-35qo.onrender.com/delete-single-attendance/${_id}`);
       toast.success("Delete Success");
       fetchAllAttendance();
       
